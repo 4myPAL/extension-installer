@@ -31,7 +31,14 @@ class ExtensionInstaller extends LibraryInstaller
 			);
 		}
 
-		return 'ext/' . substr( $package->getPrettyName(), 13 );
+		$extra = $this->composer->getPackage()->getExtra();
+		$extname = substr( $package->getPrettyName(), 13 );
+
+		if( isset( $extra['ext-path'] ) ) {
+			return $extra['ext-path'] . DIRECTORY_SEPARATOR . $extname;
+		}
+
+		return 'ext' . DIRECTORY_SEPARATOR . $extname;
 	}
 
 
