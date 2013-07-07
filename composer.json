@@ -1,0 +1,13 @@
+{
+    "name": "arcavias/extension-installer",
+	"description": "custom composer installer for Arcavias extensions",
+	"homepage": "http://www.arcavias.com/en",
+    "type": "composer-installer",
+	"license": "LGPL-3.0",
+    "autoload": {
+        "psr-0": {"Arcavias\\Composer": "src/"}
+    },
+    "extra": {
+        "class": "Arcavias\\Composer\\ExtensionInstaller"
+    }
+}
