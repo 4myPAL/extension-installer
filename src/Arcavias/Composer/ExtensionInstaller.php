@@ -6,7 +6,7 @@
  */
 
 
-namespace phpDocumentor\Composer;
+namespace Arcavias\Composer;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
@@ -22,18 +22,16 @@ class ExtensionInstaller extends LibraryInstaller
 	 */
 	public function getInstallPath( PackageInterface $package )
 	{
-	    $prefix = substr( $package->getPrettyName(), 0, 13 );
+		if( substr( $package->getPrettyName(), 0, 13 ) !== 'arcavias/ext-' )
+		{
+			throw new \InvalidArgumentException(
+				'Unable to install extension, arcavias extensions '
+				. 'should always start their package name with '
+				. '"arcavias/ext-"'
+			);
+		}
 
-	    if( $prefix !== 'arcavias/ext-' )
-	    {
-	        throw new \InvalidArgumentException(
-	            'Unable to install extension, arcavias extensions '
-	            .'should always start their package name with '
-	            .'"arcavias/ext-"'
-	        );
-	    }
-
-	    return 'ext/'.substr( $package->getPrettyName(), 13 );
+		return 'ext/' . substr( $package->getPrettyName(), 13 );
 	}
 
 
