@@ -4,6 +4,12 @@
 	"homepage": "http://www.arcavias.com/en",
     "type": "composer-installer",
 	"license": "LGPL-3.0",
+	"support": {
+		"source": "https://github.com/Arcavias/extension-installer",
+		"issues": "https://bugs.arcavias.com",
+		"forum": "https://forum.arcavias.com",
+		"wiki": "https://docs.arcavias.com"
+	},
     "autoload": {
         "psr-0": {"Arcavias\\Composer": "src/"}
     },
